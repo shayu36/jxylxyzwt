@@ -1,0 +1,38 @@
+\ttl@change@i {\@ne }{section}{1.6em}{\addvspace {2pt}\filright }{\contentspush {\thecontentslabel \hspace {0.8em}}}{}{\titlerule *[8pt]{.}\contentspage }\relax 
+\ttl@change@v {section}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsection}{3.2em}{\addvspace {2pt}\filright }{\contentspush {\thecontentslabel \hspace {0.8em}}}{}{\titlerule *[8pt]{.}\contentspage }\relax 
+\ttl@change@v {subsection}{}{}{}\relax 
+\ttl@change@i {\@ne }{subsubsection}{4.8em}{\addvspace {2pt}\filright }{\contentspush {\thecontentslabel \hspace {0.8em}}}{}{\titlerule *[8pt]{.}\contentspage }\relax 
+\ttl@change@v {subsubsection}{}{}{}\relax 
+\contentsline {section}{\numberline {1}项目背景}{1}{}%
+\contentsline {subsection}{\numberline {1.1}智慧医疗}{1}{}%
+\contentsline {subsection}{\numberline {1.2}孤独症谱系障碍}{1}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}孤独症儿童的早期干预}{2}{}%
+\contentsline {subsubsection}{\numberline {1.2.2}虚拟现实技术辅助孤独症干预}{3}{}%
+\contentsline {section}{\numberline {2}相关研究}{4}{}%
+\contentsline {subsection}{\numberline {2.1}虚拟现实技术在孤独症干预领域进展}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}社交能力训练}{4}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}工具性生活能力训练}{4}{}%
+\contentsline {subsection}{\numberline {2.2}孤独症患者眼动分析}{5}{}%
+\contentsline {subsection}{\numberline {2.3}3D 高斯泼溅场景生成}{5}{}%
+\contentsline {section}{\numberline {3}本项目成果与创新点}{6}{}%
+\contentsline {section}{\numberline {4}关键技术}{6}{}%
+\contentsline {subsection}{\numberline {4.1}3D 高斯泼溅场景生成与物品分割与填充技术}{6}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}3D 高斯泼溅场景生成}{6}{}%
+\contentsline {subsubsection}{\numberline {4.1.2}物品分割与填充技术}{8}{}%
+\contentsline {subsection}{\numberline {4.2}高保真人物动态重建技术}{8}{}%
+\contentsline {subsubsection}{\numberline {4.2.1}动态人物重建技术}{9}{}%
+\contentsline {subsubsection}{\numberline {4.2.2}实时人物重建技术}{9}{}%
+\contentsline {subsection}{\numberline {4.3}多模态 AI 大模型驱动的智能语音交互系统}{10}{}%
+\contentsline {subsection}{\numberline {4.4}沉浸式眼动分析范式}{11}{}%
+\contentsline {section}{\numberline {5}效果展示与竞品分析}{11}{}%
+\contentsline {subsection}{\numberline {5.1}效果展示}{11}{}%
+\contentsline {subsection}{\numberline {5.2}竞品分析}{12}{}%
+\contentsline {section}{\numberline {6}商业和社会价值}{13}{}%
+\contentsline {subsection}{\numberline {6.1}商业价值}{13}{}%
+\contentsline {subsubsection}{\numberline {6.1.1}市场分析}{13}{}%
+\contentsline {subsubsection}{\numberline {6.1.2}商业发展}{13}{}%
+\contentsline {subsection}{\numberline {6.2}社会价值}{14}{}%
+\contentsline {section}{结论}{14}{}%
+\contentsline {section}{参考文献}{16}{}%
+\contentsfinish 

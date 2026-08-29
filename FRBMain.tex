@@ -1,0 +1,782 @@
+\catcode"200B=9
+\documentclass[zihao=-4]{ctexart}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+%********************导言区宏包引入********************
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+% 整页图片命令：用于第一页
+\newcommand{\FullPageImage}[1]{%
+  \thispagestyle{empty}%
+  \AddToShipoutPictureBG*{%
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{#1}%
+    }%
+  }%
+  \null
+  \clearpage
+}
+
+% 后续页面背景图命令：从调用之后的页面开始生效
+\newcommand{\SetPageBackground}[1]{%
+  \AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{#1}%
+    }%
+  }%
+}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{listings} %代码
+\usepackage{graphicx}
+\usepackage{multicol} %回车换段
+\usepackage{xcolor}
+\usepackage{geometry} %页面设置
+\usepackage{fontspec}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{comment}
+\usepackage{tabularx}
+\usepackage{fancyhdr} %页眉页脚
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\usepackage{float} %表格位置
+\usepackage{titlesec} %设置
+\usepackage{titletoc}
+\usepackage{gbt7714}    %控制参考文献格式为国标
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{booktabs}   %表格相关
+\usepackage{setspace}   %设置行距
+\usepackage{caption} %caption
+\usepackage{subcaption} %子图的caption
+\usepackage{changepage} %左右缩进
+\usepackage{pifont} %带圆圈标号
+\usepackage{subcaption}
+\usepackage{caption}
+
+%********************Unicode 字符兼容处理********************
+% 解决 XeLaTeX 下 Times New Roman / 数学字体缺少 Unicode 希腊字母、特殊符号的问题
+\usepackage{newunicodechar}
+
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{ε}{\ensuremath{\varepsilon}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{φ}{\ensuremath{\varphi}}
+\newunicodechar{ϕ}{\ensuremath{\varphi}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{ó}{\'o}
+\newunicodechar{í}{\'i}
+\newunicodechar{ö}{\"o}
+\newunicodechar{́}{}
+\newunicodechar{̈}{}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{√}{\ensuremath{\checkmark}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+% 处理误写在数学模式中的中文顿号，如 $x、y、z$
+\newunicodechar{、}{\ifmmode\text{、}\else\symbol{"3001}\fi}
+%********************Unicode 字符兼容处理********************
+
+\graphicspath{ {include_picture/} }
+\let\algorithm\relax
+\let\endalgorithm\relax
+\usepackage[ruled,vlined]{algorithm2e}%[ruled,vlined]{
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}} 
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+%\renewcommand\thepage{\zihao{-5} ~\arabic{page}~}%页码字号
+
+%定义两个arg
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareCaptionLabelSeparator{mysep}{\space\space}  %自定义caption格式
+\captionsetup[figure]{font={small}, labelfont=bf, labelsep=mysep, textfont=bf}   %图片caption格式
+\captionsetup[table]{font={small}, labelfont=bf, labelsep=mysep, textfont={bf}}   %表格caption格式
+\bibliographystyle{gbt7714-numerical} %修改了title斜体内容
+
+%********************导言区宏包引入********************
+%********************第三方字体引入********************
+%\setCJKmainfont[Path=fonts/,BoldFont=simhei.ttf,ItalicFont=simkai.ttf,SlantedFont=simfang.ttf]{simsun.ttc}
+%中文字体涵盖黑体、宋体、楷体、仿宋
+\setmainfont[Path=fonts/, 
+BoldFont = times-new-roman-bold.ttf,
+ItalicFont = times-new-roman-italic.ttf,
+BoldItalicFont = times-new-roman-bold-italic.ttf
+]{times-new-roman.ttf}
+\setmonofont[Path=fonts/]{Courier New.ttf}
+\setCJKfamilyfont{hwzs}[Path=fonts/]{STKzhongsong.ttf}%使用STZhogsong华文中宋字体
+\newcommand{\zhongsong}{\CJKfamily{hwzs}}
+\setCJKfamilyfont{hwxw}[Path=fonts/]{STKxinwei.ttf} % XSP 2023/3/3:
+\newcommand{\xinwei}{\CJKfamily{hwxw}}              %  使用STZxinwei华文新魏字体.
+
+%********************第三方字体引入********************
+
+
+%********************中文字号设置********************
+%\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}
+\newcommand{\chuhao}{\fontsize{42pt}{0}}
+\newcommand{\xiaochu}{\fontsize{36pt}{0}}
+\newcommand{\yihao}{\fontsize{28pt}{0}}
+\newcommand{\erhao}{\fontsize{21pt}{0}}
+\newcommand{\xiaoer}{\fontsize{18pt}{0}}
+\newcommand{\sanhao}{\fontsize{16pt}{0}}
+\newcommand{\sihao}{\fontsize{14pt}{0}}
+\newcommand{\xiaosi}{\fontsize{12pt}{0}}
+\newcommand{\wuhao}{\fontsize{10.5pt}{0}}
+\newcommand{\xiaowu}{\fontsize{9pt}{0}}
+\newcommand{\liuhao}{\fontsize{8pt}{0}}
+\newcommand{\qihao}{\fontsize{5.25pt}{0}}
+%********************中文字号设置********************
+
+
+%********************页边距设置********************
+\geometry{left=3cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\geometry{a4paper} % xsp 2023/3/7: 调整纸张大小为A4
+%********************页边距设置********************
+
+%********************段间距设置********************
+\newcommand{\setParDis}{\setlength {\parskip} {0pt} }
+%请在每部分使用这个
+%********************段间距设置********************
+
+%********************
+
+\begin{document}
+
+%********************第一页整页图片封面********************
+\FullPageImage{include_picture/first_page.png}
+
+%********************从第二页开始添加背景图********************
+\SetPageBackground{include_picture/background.png}
+
+%********************页眉页脚设置********************
+\lhead{}
+\rhead{}
+\setlength{\headwidth}{\textwidth}
+%********************页眉页脚设置********************
+
+%********************标题格式设置********************
+
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{3}
+
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theparagraph}{\thesubsubsection.\arabic{paragraph}}
+\renewcommand{\thesubparagraph}{\theparagraph.\arabic{subparagraph}}
+
+\titleformat{\section}[block]
+  {\sanhao\heiti\centering}
+  {\thesection}
+  {1em}
+  {}[]
+
+\titleformat{\subsection}[block]
+  {\sihao\heiti}
+  {\thesubsection}
+  {1em}
+  {}[]
+
+\titleformat{\subsubsection}[block]
+  {\xiaosi\heiti}
+  {\thesubsubsection}
+  {1em}
+  {}[]
+
+\titleformat{\paragraph}[block]
+  {\xiaosi\heiti}
+  {\theparagraph}
+  {0.5em}
+  {}[]
+
+\titleformat{\subparagraph}[block]
+  {\xiaosi\heiti}
+  {\thesubparagraph}
+  {0.5em}
+  {}[]
+
+\titlespacing{\section}{0pt}{25pt}{12pt}
+\titlespacing{\subsection}{0pt}{7pt}{7pt}
+\titlespacing{\subsubsection}{0pt}{5pt}{4pt}
+\titlespacing{\paragraph}{0pt}{3pt}{2pt}
+\titlespacing{\subparagraph}{0pt}{3pt}{2pt}
+
+\titlecontents{section}[1.6em]{\addvspace{2pt}\filright}
+{\contentspush{\thecontentslabel\hspace{0.8em}}}
+{}{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{subsection}[3.2em]{\addvspace{2pt}\filright}
+{\contentspush{\thecontentslabel\hspace{0.8em}}}
+{}{\titlerule*[8pt]{.}\contentspage}
+
+\titlecontents{subsubsection}[4.8em]{\addvspace{2pt}\filright}
+{\contentspush{\thecontentslabel\hspace{0.8em}}}
+{}{\titlerule*[8pt]{.}\contentspage}
+
+\linespread{1.8}
+\setlength{\parskip}{0.5\baselineskip}
+
+% 摘要页开始
+\renewcommand{\headrulewidth}{0pt}
+\pagenumbering{roman}
+
+\xiaosi
+\section*{摘要}
+\begin{spacing}{1.5}
+  \setParDis %设置段间距为 0
+
+        孤独症，又称自闭症，是一项终身发展的神经发育型障碍，孤独症患者从出生起，便被一双无形的大手深刻地改变了人生的轨迹。孤独症已成为全球公共卫生领域的重要议题，截至目前，全球约有 6180 万人患有孤独症，约合每 127 人中即有一例，我国现有孤独症确诊患者逾 1300 万，其中年增速超 20 万例，呈现持续攀升态势。
+
+孤独症目前症状未明且无特效药物，鉴于干预工作的专业性，目前由相关机构提供线下一对一干预是孤独症儿童恢复的核心手段。但是仅靠机构干预，孩子的高强度干预难以保证，且高昂的费用让大部分患者家庭在经济天平失衡中负重前行。此外，目前相关机构医患比严重失调且呈现巨大的地区差异性。
+
+为解决上述问题，虚拟现实技术凭借沉浸性、可控性及可重复使用性等优势逐步应用于孤独症干预，但受限于技术其面临三重局限：其一，失真的固定场景加剧孤独症儿童核心障碍——泛化能力缺陷，其二，预设虚拟角色表情等社交要素缺失偏离社交干预本质，其三，患者针对性动态评估体系缺位。这些局限使其训练模式与患者症状的高度异质性形成结构性矛盾，阻碍了技术成果向临床实践的有效转化。
+
+为此，我们提出了北辰——一体化孤独症儿童干预系统，旨在提供个性化的高保真 3D 高斯泼溅场景和高度还原的人物模拟社交场景或干预场景，建立多模态 AI 大模型驱动的智能语音交互系统，对患儿认知功能、社会交往、语言和与表达能力和工具性日常生活能力进行一体化干预训练。此外，北辰系统通过实时数据采集和分析，将复杂神经发育评估转化为可穿戴设备驱动的行为数据分析，为家庭化干预提供客观动态监测锚点，为干预效果提供科学依据，呵护“星星的孩子”健康成长。
+
+ \end{spacing}
+
+\textbf{关键词：}孤独症，干预，虚拟现实，高斯泼溅，大模型对话
+
+\newpage
+\section*{\textbf{Abstract}} % XSP 2023/3/8: Abstract 加粗
+\begin{spacing}{1.5}
+\begin{adjustwidth}{0.42cm}{0.42cm}
+    \sloppy
+  \setParDis %设置段间距为 0
+
+Autism, also known as autism spectrum disorder, is a lifelong neurodevelopmental disorder. People with autism have had their life trajectories profoundly altered from birth by an invisible force. Autism has become a significant issue in global public health. As of now, approximately 61.8 million people worldwide have autism, which means that about one in every 127 people is affected. In China, there are currently over 13 million confirmed cases of autism, with an annual increase of more than 200,000 cases, showing a continuous upward trend.
+
+Autism currently has unclear symptoms and no specific drugs. Given the professionalism of intervention work, one-on-one offline intervention provided by relevant institutions is currently the core means for the recovery of children with autism. However, relying solely on institutional intervention, it is difficult to ensure the high-intensity intervention for children, and the high cost makes most patient families struggle under the economic imbalance. In addition, the doctor-patient ratio in relevant institutions is seriously imbalanced and shows huge regional differences.
+
+To address the above issues, virtual reality technology, with its advantages such as immersion, controllability and reusability, has gradually been applied in autism intervention. However, due to technical limitations, it faces three major constraints: first, the distorted and fixed scenarios exacerbate the core obstacle of children with autism -- the deficiency in generalization ability; second, the pre-set virtual character expressions and other social elements are missing, deviating from the essence of social intervention; third, the absence of a patient-specific dynamic assessment system. These limitations create a structural contradiction with the high heterogeneity of patient symptoms, hindering the effective transformation of technological achievements into clinical practice.
+
+For this purpose, we have proposed the Beichen -- an integrated intervention system for children with autism, aiming to provide personalized high-fidelity 3D Gaussian splash scenes and highly realistic character simulation social or intervention scenarios. It also establishes a multi-modal AI large model-driven intelligent voice interaction system to conduct integrated intervention training for children's cognitive functions, social interactions, language and expression abilities, and instrumental activities of daily living. Additionally, the Beichen system converts complex neurodevelopmental assessments into wearable device-driven behavioral data analysis through real-time data collection and analysis, providing objective dynamic monitoring anchor points for family-based intervention and scientific evidence for intervention effects, to care for the healthy growth of ``star children''.
+
+\textbf{Keywords:} Autism, Intervention, Virtual Reality, Gaussan Splatting, Large Language Models
+\end{adjustwidth}
+\end{spacing}
+
+
+
+%********************摘要部分********************
+
+
+%********************目录部分********************
+\clearpage
+\tableofcontents
+\clearpage
+%********************目录部分********************
+\renewcommand{\headrulewidth}{0.4pt} %恢复页眉装饰线
+
+
+\definecolor{headerblue}{RGB}{35,95,170}
+
+%********************正文页眉部分********************
+%\lhead{}
+\chead{\textcolor{headerblue}{\wuhao\bfseries 穹地智感  —— “天-空-地”一体化多尺度地貌监测预警系统}}
+
+%********************正文页眉部分********************
+
+\pagenumbering{arabic} %正文页码从1开始，用阿拉伯数字
+\setcounter{page}{1} 
+
+\section{项目背景}
+\setParDis %设置段间距为 0
+\begin{spacing}{1.5}
+
+\subsection{智慧医疗}
+
+自党的十八大以来，以习近平同志为核心的党中央始终将人民健康置于优先发展的核心战略地位，明确了新时代卫生与健康工作方针。从十九大报告明确提出“实施健康中国战略”[1]，到《十四五规划和 2035 年远景目标纲要》再次强调“把保障人民健康放在优先发展的战略位置，深入实施健康中国行动”，再到二十大报告进一步强调“推进健康中国建设”[2]，这一系列决策部署清晰地勾勒出我国卫生健康事业发展的宏伟蓝图和行动纲领，为智慧医疗的发展提供了坚实的政策基础和广阔的发展空间。
+
+在国家战略的引领下，智慧医疗作为推动医疗行业转型升级、实现医疗资源优化配置和提升医疗服务效率的关键驱动力，得到了国家层面的高度关注和大力支持。国务院及相关部门围绕智慧医疗产业的发展，制定并实施了一系列具有前瞻性、系统性和可操作性的政策和措施，旨在为智慧医疗的快速发展营造良好的政策环境，提供坚实的制度保障[3]。
+
+\subsection{孤独症谱系障碍}
+
+孤独症谱系障碍简称孤独症，与自闭症同义，是一组以社交沟通障碍、兴趣或活动范围狭窄以及重复刻板行为为主要特征的神经发育性障碍。主要特征是社会交往与沟通障碍、兴趣狭窄和重复刻板行为、情绪障碍、感觉和动作障碍、行为怪异或伴有智力及认知障碍等。孤独症与大众认知的截然不同的概念，大众常误认为孤独症患者对情感无感，实则他们具备丰富的情感体验，只是解读社交信号（如表情、语调）的神经机制异于常人。部分患者甚至会因过度共情而陷入焦虑，这与“冷漠”的标签完全相悖。
+
+此外，刻板动作和特殊兴趣常被污名化为“怪异行为”，实则这些行为具备自我调节功能，例如孤独症的常见症状——“蝴蝶手”，只是患者为了缓解内心的焦虑的外在表现。最新研究指出，规律性重复动作能帮助孤独症患者稳定感知过载的神经系统，其作用类似于人类进化过程中形成的应激保护机制。约 30\% 患者存在语言发展迟滞，但这不意味智力缺陷。神经影像显示，部分非语言患者在视觉思维、模式识别等领域的脑区活跃度超常，印证了“不同认知方式而非能力缺失”的神经多样性理论。
+
+自闭症谱系障碍已成为全球公共卫生领域的重要议题。流行病学数据显示，截至 2023 年，全球孤独症患者总数已达 6180 万例，其中我国现存病例超过 1300 万，占全球患病人口的 21.04\%[4]。值得注意的是，我国孤独症年新增确诊病例自 2018 年起持续突破 20 万例[5]，年均复合增长率达 6.8\%，显著高于全球平均 3.2\% 的增速。
+
+关于孤独症的核心症状尚无药物可以治疗。长期以来学者普遍认为多数孤独症患儿预后不良，成年后多不具备独立生活、学习和工作能力，成为家庭和社会的沉重负担。但近年来越来越多研究发现，早期发现、早期行为干预和教育可显著改善孤独症患儿的不良预后。
+
+2023 年 11 月，世界卫生组织宣布成立一个新的社会联系委员会，旨在应对孤独症这一紧迫的健康威胁[6]。在我国，2024 年，随着《孤独症儿童关爱促进行动实施方案》《孤独症干预实施规范》《学前教育法》的发布，计划用 5 年左右时间，促进完善孤独症儿童关爱服务工作机制、服务体系。
+
+\subsubsection{孤独症儿童的早期干预}
+
+孤独症患儿的早期干预以教育训练为主，教育训练的目的在于改善核心症状，即促进社会交往能力言语和非言语交流能力的发展，减少刻板重复行为[7]。同时，促进智力发展，培养生活自理和独立生活能力，减少不适应行为，减轻残疾程度，改善生活质量，缓解家庭和社会的精神、经济和照顾方面的压力。力争使部分患儿在成年后具有独立学习、工作和生活的能力。孤独症患儿存在着多方面的发展障碍，因此在治疗中应该根据患儿的个体情况，将行为矫正、教育训练、结构化教学等相应课程训练与药物治疗等手段结合起来形成综合干预治疗[8]。
+
+目前孤独症儿童干预呈现出多主体参与、多方法并用的特点。专业康复师和临床医生是主要的干预力量，他们运用多种行为干预技术，如应用行为分析、关键反应训练技术、离散试验训练等，对孤独症儿童进行治疗。目前主流的方法有亲子互动疗法（PCIT）[9]、共同注意模式（JASPER）[10]、早期丹佛模式（ESDM）[11]、地板时光（DIR）[12] 等综合治疗模式，并表现出较好的治疗效果。同时，干预策略的制定依赖于专业康复师对孤独症儿童进行全面的缺损功能评估，以量身设计最适合的干预方案。
+
+研究表明，0--6 岁是大脑神经可塑性关键窗口期，在此阶段每周保证 40 小时的高强度干预可使 25\% 患儿实现功能性康复[13]。鉴于干预工作的专业性，目前由相关机构提供线下一对一干预是孤独症儿童恢复的核心手段。
+
+当前孤独症干预体系面临多维困境的叠加挑战，其结构性矛盾已超越单纯医疗范畴，演变为涉及社会经济资源配置的系统性问题。实证研究表明，尽管早期高强度干预被证实能有效改善孤独症儿童社会功能，但现有支持体系存在显著实施瓶颈。
+
+其一，家庭照护成本呈现非线性增长特征，约 65\% 的家庭因干预支出超出家庭可支配收入 30\% 而陷入经济脆弱状态，其中 12.7\% 的家庭为维持干预质量被迫采取极端经济策略（如变卖资产或高息借贷），这种经济压力与儿童康复需求形成持续性张力。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{include_picture/北辰_图1_孤独症家庭每月干预费用.png}
+    \caption{孤独症家庭每月用于干预的费用}
+    \label{fig:beichen-cost}
+\end{figure}
+
+其二，专业机构存在双重资源错配，全国平均医患比达 1:132，且优质资源呈现“中心-边缘”梯度分布，省会城市每万名儿童拥有干预师数量是县域地区的 6.8 倍，这种空间异质性导致干预可及性产生马太效应；其三，家庭人力资本被迫结构性重组，23.4\% 的核心家庭选择退出劳动力市场实施全职照护，该决策虽能提升干预持续性，却使家庭抗风险能力下降 47\%，且主要照料者出现临床抑郁症状的比例达普通人群的 3.2 倍。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图2_我国孤独症干预机构分布.png}
+    \caption{我国孤独症干预机构分布}
+    \label{fig:beichen-institutions}
+\end{figure}
+
+更值得关注的是，现有政策框架尚未建立动态成本补偿机制，家庭经济负担、机构承载压力与儿童发展需求三者间的资源分配失衡，正在形成制约干预效果达成的负向循环系统。这种系统性困境提示，构建基于生态理论的多元支持网络，整合医疗保障、教育安置与社区支持的协同干预模式，已成为突破当前发展瓶颈的迫切需求。
+
+\subsubsection{虚拟现实技术辅助孤独症干预}
+
+虚拟现实技术（VR）作为现代仿真领域的核心技术分支，通过计算机构建三维动态环境，融合多维度感知与交互系统，为使用者提供高度拟真的沉浸式体验。其核心技术涵盖环境建模、空间定位、多模态感知（视觉、听觉、触觉）及人机交互设备，具备环境真实感、实时反馈性、操作自主性等核心特征，使人类认知系统与数字世界形成深度耦合。它创造的虚拟环境给人以“身临其境”之感，允许使用者与环境进行全方位的交互。“沉浸式”的体验，使大脑容易获得相应的认知和体验，因此，VR 技术在教育、医学、设计、仿真乃至娱乐领域，都有着广泛的应用。
+
+在医学革新领域，VR 技术正重构临床教学、诊疗规划与科研范式[14]。通过构建毫米级精度的虚拟人体解剖模型，医学生可在无风险环境中进行器官结构探索与手术流程演练，其触觉反馈系统能精准模拟组织切割阻力与器械操作力学特性。以约翰斯·霍普金斯大学医学院的突破性实践为例：2020 年 6 月，其神经外科团队完成全球首例 AR 全流程脊柱融合手术，成功植入 6 枚椎弓根螺钉。术中采用配备透视显示器的 AR/VR 头显，将患者术前 CT 扫描数据重建的脊柱三维模型与实时手术视野精准叠加，误差控制在 0.5 毫米内。医生无需反复查看分屏影像，即可通过虚实融合的立体视图，直观判断螺钉植入角度与深度。后续该团队再次运用此技术，在另一例高难度手术中完整切除脊柱转移性肿瘤，成功规避脊髓与神经根损伤风险。
+
+虚拟现实技术拥有得天独厚的优势，虚拟现实技术凭借其多维感知重构、沉浸式场景模拟及精准行为捕捉等独特优势，正在重塑孤独症谱系障碍（ASD）干预的范式。相较于传统干预方法存在的地域局限、价格高昂等瓶颈。这种技术驱动的干预模式不仅突破地理与人力资源限制，更有可能通过脑机接口技术探索神经可塑性重塑机制，为孤独症康复开辟了数字疗法新纪元。总而言之，虚拟现实技术通过构建可编程的虚拟生态空间是解决孤独症干预现有问题的革新性方案[15]。
+
+\section{相关研究}
+
+\subsection{虚拟现实技术在孤独症干预领域进展}
+
+\subsubsection{社交能力训练}
+
+孤独症的核心症状之一表现为社会交往能力的功能性损伤，其病理机制涉及多模态神经网络的异常整合[16]。Lord et al. 2020 等人的研究表明，孤独症个体在联合注意、情绪识别及互动式对话等社交场景中普遍存在显著缺陷：约 89\% 的学龄期患者无法维持持续目光接触，72\% 存在非语言交流（如手势、表情）解码障碍[17]。
+
+近年来，虚拟现实（VR）技术在自闭症谱系障碍社交能力干预领域展现出显著潜力。Ke 等针对 9--11 岁孤独症儿童开发了基于目标导向的 VR 社交训练系统[18]，其创新性体现在将任务结构划分为问题解决（如逻辑推理任务）与自主决策（如开放式社交探索）两大模块。该系统通过个性化动态算法与标准化协议的结合，重点培养儿童在人际互动中的反应启动、任务协商及自我表达等核心能力。研究者采用家长报告的标准化量表（SCQ 与 SSQ）进行前后测评估，结果显示干预后 SCQ 得分显著降低（P=0.01），表明社交沟通障碍得到缓解；SSQ 得分则出现统计学显著提升（P<0.05），证实社交技能获得系统性改善。该研究验证了结构化 VR 训练对孤独症儿童社交能力多维度的促进作用。
+
+进一步研究表明，沉浸式 VR 环境的适应性设计可增强干预效果。Soltiyeva 等构建的“农场情境自适应 VR 系统”为 4--15 岁孤独症个体创设了动态社交互动场景[19]：受试者需在虚拟环境中完成与农夫角色及动物的渐进式交互任务，系统通过实时情绪识别算法调整虚拟角色的反馈模式。实验数据显示，80\% 的参与者在任务执行期间表现出持续互动动机，且两阶段任务平均得分从基线 2.83 分提升至 3.33 分（$\Delta=17.67\%$），证实系统能够有效促进孤独症儿童在陌生社交情境中的适应性表现。此类研究为开发具生态效度的数字干预方案提供了重要方法论参考。
+
+\subsubsection{工具性生活能力训练}
+
+孤独症儿童的核心社会认知缺陷导致其对环境线索的觉察与适应性响应存在显著障碍，这种社会信息处理异常不仅造成日常功能独立性受损，更与意外伤害发生率升高呈正相关。虚拟现实（VR）技术通过构建生态效度高的模拟环境，为解决上述问题提供了创新性干预路径：其既可通过多模态感官输入促进技能迁移，又能确保训练过程的风险可控性。在此领域，Tan 等设计的“交通安全 VR 训练系统”具有代表性价值。该研究采用多阶段干预框架，首先通过结构化课程教授交通规则认知基础[20]，随后在渐进式难度设计的四个虚拟交通场景中实施情境化训练，最终通过标准化测试评估技能掌握程度。实验数据显示，干预组中 60\% 的孤独症儿童达到测试满分标准，其余参与者正确率亦达 80\% 以上，证实该系统能有效提升目标人群的道路安全决策能力与标志识别准确性。此研究结果从神经行为可塑性角度揭示了 VR 训练在促进孤独症儿童社会适应能力和工具性生活能力发展中的潜在机制。
+
+\subsection{孤独症患者眼动分析}
+
+韩俊霞等人针对孤独症患者的眼动追踪研究中发现孤独症组对共同注意在各个年龄均低于正常组。孤独症组在注视背景和身体部分也明显高于正常组。在注视嘴部部分，正常组随年龄没有明显变化，而孤独症随着年龄增大，其对嘴部的注视显著增加[21]。
+
+眼动特征分析中，共同注意是指通过跟随、引导后产生的关注，是两人对某一物体的注意能力，宫为大等人同过分析 106 名患者儿童共同注意能力发现，孤独症患儿眼睛以及头部引导的共同注意能力较差，并且这些眼动特征与患儿社交障碍、孤独症症状具有显著关联[22]。
+
+孤独症儿童的注视模式随年龄增长呈现动态变化，马伟娜等人的研究表明，孤独症儿童在面部识别中更依赖嘴部信息，而典型发育儿童则偏好眼部区域，且这种差异随年龄增长愈发明显[23]。
+
+\subsection{3D 高斯泼溅场景生成}
+
+3D 高斯泼溅（3D Gaussian Splatting）是一种结合显式表示与隐式优化的三维重建技术，通过将场景表示为各向异性的 3D 高斯分布，实现高效渲染与高质量重建。其核心优势包括实时渲染（30 fps）和高保真视觉效果，突破了传统 NeRF 方法的效率瓶颈[24]。
+
+Bernhard Kerbl 等人提出了 3D 高斯泼溅的基础框架，通过优化高斯参数（位置、协方差、透明度等）和自适应密度控制，实现了高效的场景建模与实时渲染[25]。
+
+Xue 等人利用 SAM 和 DINO 等视觉模型生成语义掩码，通过几何复杂度正则化优化高斯分布，实现了非结构化场景（如城市街道、自然景观）的精确分割与编辑，显著提升了 VR 场景的交互体验[26]。
+
+鉴于生成的高斯泼溅场景均为点云，不同物体间耦合严重，Jiazhong Cen 等人的工作将 Segment Anything Model 的分割能力从 2D 掩码提炼到亲和特征中，以及采用软尺度门机制，通过根据指定的 3D 物理尺度调整每个特征通道的大小来处理 3D 分割中的多粒度模糊[27][28]。
+
+\section{本项目成果与创新点}
+
+针对孤独症患儿康复的核心手段——干预训练，本项目旨在构建拥有高保真的场景和人物的 3D 系统，从而可以直接用于孤独症患儿模拟社交和干预情景并通过模拟对患儿进行训练。在此期间，北辰着力攻破现有 VR 在孤独症干预领域存在的场景失真和人物缺乏表情等社交因素的问题，在只需要一段简单的输入视频的条件下，通过 3D 高斯技术构建高保真的场景和动态人物，并且运用实时人物重建技术，使得干预师可以远程参与到干预中，通过在 VR 中进行一系列引导操作，对患儿认知功能、社会交往、语言和与表达能力和工具性日常生活能力进行一体化干预训练。此外，针对孤独症儿童的眼镜回避现象，相比眼动分析仪，我们所构建的沉浸式眼动分析范式通过高生态效度的虚拟场景自然诱发儿童注视行为，该技术将复杂神经发育评估转化为可穿戴设备驱动的行为数据分析，为家庭化干预提供客观动态监测锚点。
+
+\section{关键技术}
+
+北辰包含了四大核心技术，分别是高精度三维场景建模与物品分割与填充、实高保真时人体三维重建、多模态 AI 大模型驱动的智能语音交互系统以及沉浸式眼动追踪分析范式，且都具备个性化支持，以应对孤独症患者“千人千面”的挑战。
+
+这几大创新功能使得我们的产品在与现有产品相比时具有明显的差异化优势。我们不仅提供了更加真实、有效的社交训练环境，还通过智能交互语音系统实现了个性化的干预方案，并且利用眼动追踪技术进一步提升了干预的精准度。同时，本产品还整合了丰富的医疗资源、学校资源和导师资源，为客户提供全方位的支持和服务。此外，北辰正在通过临床实验验证了产品的有效性和安全性，进一步增强了产品的可信度和竞争力。
+
+\subsection{3D 高斯泼溅场景生成与物品分割与填充技术}
+
+\subsubsection{3D 高斯泼溅场景生成}
+
+考虑到需要继承可微体积表达的优势，且同时满足非结构化和显式表达的条件以进行快速渲染[29]。因为 3D 高斯椭球可微且易于投影为 2D 溅射，可以进行快速的 $\alpha$ 混合，所以我们选择了 3D 高斯椭球[30]。
+
+位置信息由点云优化后的三维坐标 $(x,y,z)$ 定义[31]，对应高斯椭球的中心点（均值 $\mu$）。形状信息则通过协方差矩阵 $\Sigma$ 描述，该矩阵决定了椭球的空间分布方向与缩放比例。为了确保 $\Sigma$ 的半正定性质并简化运算，$\Sigma$ 被分解为旋转矩阵 $R$ 和各轴向缩放矩阵 $S$ 的组合，即：
+
+\begin{equation}
+\Sigma = R S S^{T} R^{T}
+\end{equation}
+
+其几何意义是：先将椭球通过旋转矩阵 $R$ 与世界坐标系对齐，再沿各轴进行缩放，最后通过逆旋转 $R^T$ 还原方向。这种分解避免了直接初始化 $\Sigma$ 可能导致的非半正定问题，同时减少了矩阵运算的复杂度。
+
+这种各向异性协方差的表示方法适合优化，使我们能够优化三维高斯，以适应拍摄场景中不同形状的几何图形，从而获得相当紧凑的表示方法，如图所示：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.78\linewidth]{include_picture/北辰_图3_各向异性形状的高斯.png}
+    \caption{各向异性形状的高斯}
+    \label{fig:beichen-anisotropic-gaussian}
+\end{figure}
+
+我们对 3D 高斯的属性进行优化，包括 3D 位置、不透明度 $\alpha$、各向异性协方差 $\Sigma$ 和表达高斯色彩的球谐（SH）系数，并与自适应密度控制步骤交替进行，以更好地表达场景[32]。在参数优化中，损失函数定义如下：
+
+\begin{equation}
+L=(1-\lambda)L_1+\lambda L_{D-SSIM}
+\end{equation}
+
+其中，$L_1$ 是实际图片与渲染图片的像素值的 $L_1$ 范数，$L_{D-SSIM}$ 是一种基于结构相似性（SSIM）的损失函数，但考虑了深度信息。
+
+随后我们利用 CUDA 架构特性：一个图像块对应一个 CUDA 线程块（Block），而块内的每个线程（Thread）则精确对应单个像素的渲染计算。这种设计充分利用了 GPU 的 SIMT（单指令多线程）执行特性，通过 warp 调度器动态分配计算资源，使得数千个流处理器能够并发执行着色器计算、光线追踪、纹理采样等图形运算[33]。
+
+实验环境搭建于配备双路 NVIDIA GeForce RTX 3090Ti GPU 的计算平台，基于 Ubuntu 22.04 LTS 操作系统构建测试环境，并采用 CUDA 11.8 并行计算架构进行加速优化。该硬件配置为深度学习任务提供了 24GB 显存容量及 10,752 个 CUDA 核心的计算能力，软件环境通过 NVIDIA 驱动程序版本 525.85.12 实现硬件资源调度[34]。
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图4a_书房.png}
+        \caption{场景1-书房}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图4b_舞台.png}
+        \caption{场景2-舞台}
+    \end{subfigure}
+
+    \vspace{0.5em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图4c_室外滑梯.png}
+        \caption{场景3-室外滑梯}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图4d_游戏室.png}
+        \caption{场景4-游戏室}
+    \end{subfigure}
+    \caption{3D 高斯泼溅场景展示}
+    \label{fig:beichen-scenes}
+\end{figure}
+
+大小 100M 的视频从输入数据获取、高斯表示构建、参数优化与密度控制到快速可微渲染约耗时 40min，实际结果如上图所示。
+
+\subsubsection{物品分割与填充技术}
+
+初始的高斯泼溅场景提出了一种新型的可区分栅格化技术，以进行有效的训练和渲染。给定特定的摄像头姿势，将 3D 高斯人投射到 2D，并通过混合一组有序的高斯 $G_P$ 重叠像素来计算像素的颜色[28]。
+
+但是这个过程中，点云物体之间相互耦合，即场景仅仅是一层空壳。于是我们赋予每个 3D 高斯分割能力，避免引入额外的复杂模块。在针对分割出的模块，我们进行了反向的填充，从而使得其具备“物体感”[35]。
+
+首先，我们为每个 3D 高斯附加一个亲和特征向量，通过尺度门控机制动态调整特征通道的权重。该机制通过单层线性网络结合 Sigmoid 函数实现[36][37]，根据指定的 3D 物理尺度将特征映射到不同的子空间，从而处理多粒度分割中的模糊性。由于所有高斯亲和力功能在训练过程中都有一个公共比例门，因此我们可以首先将亲和力功能渲染到 2D，然后将比例门应用于 2D 渲染功能[27]，如下：
+
+\begin{equation}
+F^s(p)=S(s)\odot F(p)
+\end{equation}
+
+\begin{equation}
+F(p)=\sum_{i=1}^{|g_p|}f^g_{ip}\alpha^g_{ip}\prod_{j=1}^{i-1}\left(1-\alpha^g_{jp}\right)
+\end{equation}
+
+随后，引入 K 近邻特征平滑消除噪声高斯的影响，并通过特征范数正则化确保 3D 特征与渲染后的 2D 特征对齐，避免因特征方向不一致导致的性能下降[38]。
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图5a_初始未分割点云物体.png}
+        \caption{初始未分割点云物体}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{include_picture/北辰_图5b_掩码覆盖的分割物体点云.png}
+        \caption{掩码覆盖的分割物体点云}
+    \end{subfigure}
+    \caption{物品分割前后对比}
+    \label{fig:beichen-segmentation}
+\end{figure}
+
+上图为物品分割对比，分割出对应结果后，只需在 Unity 中选择对应形状物体进行组合填充即可。
+
+\subsection{高保真人物动态重建技术}
+
+人物的动态重建方面，通过双轨动态重建架构实现虚实融合交互：针对远程干预师，采用深度相机实时捕捉多模态生物数据，结合 SMPL 人体模型与时序算法重构高精度虚拟形象，确保动作微表情的毫米级还原；对患者身边熟悉的固定人物，通过预学习建模构建个性化特征库，在搭建干预或社交场景时可以做到“即插即用”。
+
+\subsubsection{动态人物重建技术}
+
+动态人物重建，第一步需要从多视角视频中分离出每帧的视图，随后为一帧的人物都进行重建，在 Unity 中采用帧动画的形式即可重建出动态的人物。这一步我们是基于 DualGS 数据集所做[39]，单帧 3D 动态人物重建结果如下图所示。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.42\linewidth]{include_picture/北辰_图6_单帧3D动态人物重建结果.png}
+    \caption{单帧 3D 动态人物重建结果}
+    \label{fig:beichen-human-reconstruction}
+\end{figure}
+
+为了实现预训练动态人物的真实性，我们将高斯点云分为了两类——皮肤点云和关节点云[40]，其对应的参数也针对不同的需求可分为两类，运动参数（包括关节位置 $P$ 和旋转 $Q$）和外观感知参数（包括球形谐波 $C$、不透明度 $\sigma$ 和缩放率 $s$）[41]。
+
+在现有虚拟人物的驱动中主要通过骨骼的运动来驱动虚拟人物的肢体动作，如行走、奔跑、跳跃等，使虚拟人物能够进行各种自然的动作表现[42]。点云重建中，可以借助此捕捉全局运动，如身体关节的位移和旋转使其变为一个初步的点云，骨头点云受现有虚拟人物建模中人物的驱动所启发。我们首先针对人物动作的时空特性，使用了基于物理约束的层次化运动建模方法：通过稀疏关节高斯表征骨骼层级运动，结合局部刚体变换正则化约束相邻帧间运动连续性；同时引入运动预测时序模型模块，利用历史帧速度信息预判关节位移，有效应对快速动作带来的跟踪漂移问题。这种骨骼驱动范式不仅继承了参数化模型的运动解耦优势，还通过高斯点云的显式表示突破了传统蒙皮拓扑的刚性限制。
+
+随后我们确保了局部空间稳定性，同时通过分阶段优化策略（粗对齐与细粒度调整）实现运动与外观的显式解耦。这种分层表示提升了渲染保真度与时间一致性。
+
+对于皮肤高斯初始化，我们使用初始化的关节高斯内核作为输入，并进行训练以达到高保真质量。这个过程中，我们使用了基于顶点蒙皮技术的 SMPL 模型，通过最小化顶点重建误差，能够快速拟合深度图或点云数据，从而实现高效的人物重建。这种方法在实时性和精度之间取得了良好的平衡。在训练过程中，皮肤高斯人的位置通过可微分的栅格化进行了更新。
+
+\subsubsection{实时人物重建技术}
+
+我们实验中采用的是 Realsense L515 深度相机，SDK 版本为 v2.54.2。
+
+RGBD 相机能够同时获取彩色图像（RGB）和深度图像（Depth），这两种数据相互补充。彩色图像提供了丰富的纹理和外观信息，而深度图像则直接给出了场景中物体的深度信息，有助于准确地确定人物在三维空间中的位置和形状[43]。
+
+在 Unity 场景中，我们的工作就是将 RGBD 相机的深度数据流转化为点云，即将纹理绑定到实感设备流，通过构建基于坐标系的深度-色彩配准管线，将纹理信息精确映射至实感设备的深度空间。具体而言，基于 Intel RealSense L515 传感器的立体视觉深度流与 RGB 彩色流进行时间戳同步对齐后，采用基于 GPU 加速的并行化点云生成算法：用下列公式计算着色器中构建三维点云坐标[44]
+
+\begin{equation}
+P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
+\end{equation}
+
+其中 $K$ 为相机内参矩阵，$(u,v)$ 为像素坐标系坐标。为增强视觉感知，通过双线性插值算法将 RGB 纹理与点云顶点进行亚像素级配准，最终在几何着色器中生成具有法线估计的点云数据流。
+
+在人物背景分离问题中，我们使用了一种基于深度信息的分割方法，通过距离切割将人物从背景中剥离。具体而言，该方法通过分析人物在场景中的位置，结合深度信息抽离出有效的人物深度范围。首先，利用深度传感器或双目视觉技术获取场景的深度图，从而确定前景和背景的深度分布。然后，通过设定合理的深度阈值，将人物的深度范围与背景的深度范围进行分离。这种方法不仅能够有效去除背景干扰，还能保留人物的完整性和细节信息。实验表明，该方法在复杂场景下具有较高的准确性和鲁棒性，为后续的人物分析和处理提供了可靠的基础[45]。
+
+\subsection{多模态 AI 大模型驱动的智能语音交互系统}
+
+我们调研了传统的孤独症干预系统，大多都具备对话功能，但是其未能紧跟上大模型系统发展的步伐，正因洞察到上述问题，我们积极运用上诸如 ChatGPT 和 DeepSeek 等强大的大语音模型，使其生成的内容能够用语言的形式与患儿进行对话。
+
+项目大致流程如下：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\linewidth]{include_picture/北辰_图7_智能语音交互系统流程.png}
+    \caption{智能语音交互系统流程}
+    \label{fig:beichen-voice-flow}
+\end{figure}
+
+语音服务方面，我们综合对比了科大讯飞、百度智能云和 Azure，Azure 在中文普通话识别准确率、定制化发音人训练和 SDK 支持度上均表现更优，因此我们选择了 Azure。我们在云端部署了 Azure 的语音服务实现 TTS（文本转语音）和 SST（语音转文本）服务，在 Unity 中仅需通过接口调用即可。通过 REST API 与 WebSocket 双通道协议实现与云端服务的交互，Unity 引擎端通过异步回调机制处理音频流，采用环形缓冲区实现实时语音流式传输。经测试，端到端延迟控制在 730ms 以内（基于华北数据中心实测数据），满足实时交互需求。
+
+内容生成方面，我们对比采用了 ChatGPT、ChatGLM、DeepSeek 和豆包等一系列市面上热门的大模型，综合考虑成本、生成效率和内容质量等多方面因素。在评估方法上，我们采用定量与定性相结合的方式：定量指标涵盖单字推理成本（Token Cost）、响应延迟（P95 时延）及吞吐量（QPS），定性评估则通过专家评审团从语义连贯性、事实准确性和风格适配度三个维度进行双盲评分使得系统针对不同场景可以采用不同的模型[46]。
+
+内容生成的安全性上，我们建立了三重保护机制，我们通过预审查对话机制保障交流安全，同时设立焦点机制使得对话专注于当前领域，此外，我们也通过 prompt 设定以防御对话引导。
+
+综上，我们构建了一个时延低、安全性高、个性化程度高的智能语音交互系统。
+
+\subsection{沉浸式眼动分析范式}
+
+眼动追踪技术通过传感器实时监测用户的注视位置，将眼部运动转化为包含瞳距、双目注视向量和注视点的动态数据流，从而为设备提供一种新型输入方式。这项技术本质上依赖于传感器对眼部活动的捕捉与分析，能够将用户的视觉焦点转化为可操作的输入信号[47]。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图8_眼动分析凝视估计.png}
+    \caption{眼动分析凝视估计}
+    \label{fig:beichen-gaze}
+\end{figure}
+
+实验中采用的 VR 设备为 PICO 4 pro，系统集成 SRanipaRuntime 和 SteamVR Lighthouse 2.0 定位系统，通过四元数时空校准算法实现眼球运动数据。
+
+\section{效果展示与竞品分析}
+
+\subsection{效果展示}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.58\linewidth]{include_picture/北辰_图9_系统整体展示.jpg}
+    \caption{系统整体展示}
+    \label{fig:beichen-system}
+\end{figure}
+
+北辰充分考虑干预场景人物的真实性、社交属性、干预效果检测和个性化设置，通过在 VR 中进行一系列引导操作，对患儿认知功能、社会交往、语言和与表达能力和工具性日常生活能力进行一体化干预训练。
+
+在认知功能方面，VR 环境提供的沉浸式体验能够有效刺激患儿的注意力和感知能力，促进其认知发展。通过高保真的 3D 高斯泼溅场景模拟真实场景和情境，患儿可以在安全的环境中进行探索和学习，从而提高其解决问题和适应新环境的能力。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图10_患儿视角展示.jpg}
+    \caption{患儿视角展示}
+    \label{fig:beichen-child-view}
+\end{figure}
+
+在社会交往能力的培养上，北辰利用 VR 技术创建了多样化的社交场景，如舞台、马路等，让患儿在虚拟环境中与虚拟角色进行互动。这种互动不仅能够帮助患儿理解社交规则和情感表达，还能增强其社交信心和沟通技巧，让患儿不再害怕社交，可以把学到的社交技能先在 VR 中运用上，一步步脱敏，最终可以在真实生活中去社交。
+
+对于语言和表达能力的提升，北辰设计了特定的语言训练模块，通过多模态 AI 大模型驱动的智能语音交互系统，鼓励患儿积极表达自己的想法和感受。同时，虚拟环境中的视觉和听觉提示也为患儿提供了多感官的学习体验，有助于语言理解和表达的同步发展。
+
+在工具性日常生活能力的训练中，北辰通过模拟日常生活中的各种情境，如购物、过马路等，让患儿在虚拟环境中练习和掌握这些技能，从而在后续生活中能够一步一步运用上这些能力。
+
+\subsection{竞品分析}
+
+相较于国内孤独症干预领域的先行者千丘智能与数药智能公司，以及国外的 Spirit VR 与 XR Health 公司，北辰在技术与应用方面取得了显著突破。北辰通过创新的建模技术，解决了传统建模失真的问题，同时优化了人机交互体验，为孤独症儿童提供了更加精准和高效的干预支持。此外，北辰还开发了即时构建、个性化支持和初步评估的综合解决方案，能够根据患儿的具体需求快速生成干预计划，显著提升了干预效率和效果。
+
+与大米和小米的 AI 评估师相比，北辰还通过多模态数据的整合，进一步增强了干预方案的个性化和适应性。北辰的技术突破也为行业树立了新的标杆，推动了孤独症干预领域的技术发展，为患儿及其家庭提供了更加普惠和可持续的解决方案。
+
+\begin{table}[H]
+    \centering
+    \caption{竞品分析}
+    \begin{tabular}{lccc}
+        \toprule
+        对比维度 & 仿真评分维度 & 个性化维度 & 效果评估维度 \\
+        \midrule
+        千丘智能 & 40 & 不支持 & 不支持 \\
+        数药智能 & 60 & 不支持 & 不支持 \\
+        Spirit VR & 80 & 不支持 & 不支持 \\
+        XR Health & 50 & 不支持 & 不支持 \\
+        北辰 & 95 & 支持 & 支持 \\
+        \bottomrule
+    \end{tabular}
+    \label{tab:beichen-competitors}
+\end{table}
+
+\section{商业和社会价值}
+
+\subsection{商业价值}
+
+\subsubsection{市场分析}
+
+目前，孤独症干预市场前景广阔。从全球市场规模来看，如下图所示，2024 年，全球孤独症谱系障碍市场规模已达 96.18 亿美元，预计到 2031 年将增长至 120.6 亿美元，年复合增长率为 3.3\%[48]。在中国，孤独症市场规模同样呈现快速增长趋势，仅 0 到 18 岁的孤独症就已达到 96 亿元，且随着诊断水平的提高，这一规模还在快速增长。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.80\linewidth]{include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png}
+    \caption{2024--2031 年全球孤独症谱系障碍市场规模}
+    \label{fig:beichen-market}
+\end{figure}
+
+然而，尽管市场规模庞大，VR 技术在孤独症干预领域的渗透率仍不足 5\%，表明该技术在这一领域的应用尚处于起步阶段，具有巨大的发展潜力。北辰公司通过创新的软硬件一体式售卖模式，为患者家庭提供了更加经济实惠的干预方案，显著降低了长期干预的成本[49]。这一模式不仅使城市地区的患者家庭受益，也为偏远地区的孤独症儿童提供了接触先进康复干预的机会，进一步扩大了潜在市场规模。
+
+北辰的技术突破和商业模式创新，有望在满足市场需求的同时，推动孤独症干预技术的普及和应用，为行业的发展注入新的活力。
+
+\subsubsection{商业发展}
+
+本产品定位“全球首款 AI+VR 多模态孤独症干预系统”，聚焦 3--12 岁孤独症谱系障碍儿童群体，打造“远程医疗 + 智能训练 + 精准评估”三位一体的闭环干预体系，填补现有市场在场景真实性、数据量化性和服务连续性三方面的空白。本产品具有智能性强、交互性好、高度沉浸式、成本效益佳、操作便捷的特点。在医疗服务方面，主要面向孤独症儿童及其家庭，为处于不同干预阶段的患儿提供个性化、智能化的康复训练。同时，本产品也可作为孤独症相关研究的重要工具，为科研机构提供数据支持和技术保障。本团队将以科技为核心竞争力，以满足客户需求为最终目标，通过直接面向消费者销售、与医院和康复机构合作批量销售以及向研究机构供应等多元化渠道进入市场。
+
+作为商业产品，北辰利用上游供货商提供零件，包括但不限于 VR 眼镜、大模型服务和语音服务等，多个科研机构提供理论顾问，同时为科研机构数据支持，并面向医院、患者家庭、特殊学校进行售卖，一举实现多产业线协同发展。
+
+商业规划方面，我们进行了长期规划，久久为功，实现商业发展“四步走”。
+
+2025 年，北辰将完成产品研发，成立公司并通过天使轮融资为后续发展提供资金支持。同时，公司将完成产品分类界定和型式检验，确保产品符合相关行业标准，为后续市场推广奠定基础。到 2027 年，北辰计划完成 A 轮融资，进一步扩大资金储备，支持产品的规模化生产和市场推广。同时，公司将完成产品分类界定和型式检验，确保产品在市场中的合规性和竞争力。在 2029 年，北辰将推进临床评价工作，验证产品的有效性和安全性。此外，公司将深化与医院的合作，推动产品在医疗领域的应用和推广，进一步提升市场占有率。到 2032 年，北辰计划完成创新医疗器械特别审查申报，确保产品获得行业认可和市场准入资格。同时，公司将通过 B 轮融资进一步扩大资金储备，支持产品的持续研发和市场拓展。
+
+\subsection{社会价值}
+
+孤独症干预具有深远的社会意义，它不仅关乎个体的生活质量，更影响着家庭的幸福与社会的和谐发展。作为医疗项目，北辰一直致力于提升孤独症群体的生活质量，减轻家庭和社会的经济负担，促进社会包容和多元化发展、助力孤独症产业升级，构建孤独症产业联盟。
+
+科技在孤独症干预中发挥着越来越重要的作用。基于“自然发展行为干预”的主流方法成为推进治疗的核心，该干预方法涉及三个关键词：自然、发展和行为[50]。即在孩子的日常生活中进行干预，针对不同年龄阶段作出个性化的支持，致力于培养健康的行为习惯，专家建议，孤独症儿童每周的干预时长应达到 25 个小时。北辰的应用使得干预更加精准、高效，也更能满足患儿的干预时间需求，为孤独症康复行业带来了新的发展机遇。
+
+\section*{结论}
+\addcontentsline{toc}{section}{结论}
+
+在孤独症群体日益增长的背景下，本文提出优化基于虚拟现实（VR）技术辅助孤独症干预的创新路径。通过结合高保真的虚拟场景和人物，北辰能够为孤独症儿童提供沉浸式的训练体验，帮助他们在模拟的现实环境中学习社交技能、情绪管理、生活技能等多维度能力。此外，北辰允许用户自由配置训练场景和难度，支持干预效果的实时评估，从而实现个性化、精准化的干预。
+
+与传统人为干预相比，北辰突破了地域、时间和费用的限制，为孤独症干预提供了更加高效、灵活的解决方案。例如，北辰可以模拟超市购物、公共交通出行等真实场景，为儿童提供安全可控的训练环境，同时避免现实中的不确定因素。此外，北辰的沉浸性和互动性能够显著提高儿童的学习动机和兴趣，从而提升干预效果。相比其他用于孤独症干预的 VR 产品，北辰具有明显优势。例如，通过眼动追踪、表情反馈等技术，北辰系统能够实时捕捉儿童的行为数据，为干预效果提供科学依据。同时，VR 技术的可重用性和压力调节功能使得训练更加灵活，能够逐步提升儿童的适应能力。
+
+通过 VR 技术的赋能，我们期待为孤独症群体创造一个更加包容、多元的未来，让他们在科技的光辉中绽放光彩。万物皆有缝隙，那是光照进来的地方，北辰希望每个星星的孩子，都能成为最耀眼的那颗北辰星。
+
+\newpage
+\section*{参考文献}
+\addcontentsline{toc}{section}{参考文献}
+
+[1] 中共中央国务院. 中共中央国务院印发《“健康中国 2030”规划纲要》[A/OL]. 中国政府网, 2016. https://www.gov.cn/zhengce/2016-10/25/content\_5124174.htm.
+
+[2] 中国政府网. 中华人民共和国国民经济和社会发展第十四个五年规划和 2035 年远景目标纲要[A/OL]. 中国政府网, 2021. https://www.gov.cn/xinwen/2021-03/13/content\_5592681.htm.
+
+[3] 新华社. 习近平：高举中国特色社会主义伟大旗帜为全面建设社会主义现代化国家而团结奋斗——在中国共产党第二十次全国代表大会上的报告[A/OL]. 中华人民共和国商务部, 2022. https://m.mofcom.gov.cn/article/zt\_20thCPC/toutiao/202211/20221103366898.shtml.
+
+[4] World Health Organization. Autism spectrum disorders[EB/OL]. World Health Organization, 2023. https://www.who.int/news-room/fact-sheets/detail/autism-spectrum-disorders.
+
+[5] JIN L, YUEQIN H, HONG W, 等. 中国精神卫生调查报告（2019）[M]. 北京: 科学出版社, 2020.
+
+[6] World Health Organization. 世卫组织启动委员会以促进社会联系[EB/OL]. World Health Organization, 2023. https://www.who.int/zh/news/item/15-11-2023-who-launches-commission-to-foster-social-connection.
+
+[7] MY P. 走出孤独: 自闭症儿童的语言障碍特征分类, 评估及康复研究[D]. 吉林大学, 2016.
+
+[8] 樊越波. 孤独症干预方法有效性循证研究述评——基于《孤独症谱系障碍循证干预指南》[J]. 残疾人研究, 2014(2): 49-53.
+
+[9] MCNEIL C B, HEMBREE-KIGIN T L, ANHALT K. Parent-child interaction therapy[M]. Springer, 2010.
+
+[10] WADDINGTON H, REYNOLDS J E, MACASKILL E, et al. The effects of JASPER intervention for children with autism spectrum disorder: A systematic review[J]. Autism, 2021, 25(8): 2370-2385.
+
+[11] ROGERS S J, ESTES A, LORD C, et al. Effects of a brief Early Start Denver Model (ESDM)--based parent intervention on toddlers at risk for autism spectrum disorders: A randomized controlled trial[J]. Journal of the American Academy of Child \& Adolescent Psychiatry, 2012, 51(10): 1052-1065.
+
+[12] GREENSPAN S, WIEDER S. DIR®/Floortime™ model[J]. The International Council on Developmental and Learning Disorders, 2008.
+
+[13] 牛春艳. 某康复机构孤独症儿童康复效果影响因素分析[D]. 吉林大学, 2016.
+
+[14] SHUHAIBER J H. Augmented reality in surgery[J]. Archives of surgery, 2004, 139(2): 170-174.
+
+[15] 张思妍, 刘乐元, 陈靓影. 元宇宙赋能孤独症儿童教育干预研究初探[J]. 现代教育技术, 2025, 35(01): 128-136.
+
+[16] 郭乃绮, 王瑜. 虚拟现实技术在孤独症谱系障碍儿童干预中的研究进展[J]. Chinese Journal of Contemporary Pediatrics, 2024, 26(4): 414.
+
+[17] LORD C, BRUGHA T S, CHARMAN T, et al. Autism spectrum disorder[J]. Nature reviews Disease primers, 2020, 6(1): 5.
+
+[18] KE F, MOON J, SOKOLIKJ Z. Designing and deploying a virtual social sandbox for autistic children[J]. Disability and Rehabilitation: Assistive Technology, 2024, 19(4): 1178-1209.
+
+[19] SOLTIYEVA A, OLIVEIRA W, MADINA A, et al. My Lovely Granny's Farm: An immersive virtual reality training system for children with autism spectrum disorder[J]. Education and Information Technologies, 2023, 28(12): 16887-16907.
+
+[20] TAN Q P, HUANG L, XU D, et al. Serious game for VR road crossing in special needs education[J]. Electronics, 2022, 11(16): 2568.
+
+[21] 韩俊霞, 康健楠, 欧阳高翔, 等. 孤独症儿童脑电与眼动追踪研究[J]. 科学通报, 2018, 63(15): 52-61.
+
+[22] 宫为大, 纪红, 赵甜甜, 等. 孤独症谱系障碍患儿的眼动特征[J/OL]. 国际精神病学杂志, 2024, 51(05): 1471-1473. DOI: 10.13479/j.cnki.jip.2024.05.009.
+
+[23] 马伟娜; 朱蓓蓓; 谢宇;. 孤独症儿童面部表情识别能力的眼动研究[J/OL]. 应用心理学, 2015, 21(1): 76. http://www.appliedpsy.cn/CN/abstract/article\_97.shtml.
+
+[24] CHEN G, WANG W. A survey on 3d gaussian splatting[A]. 2024.
+
+[25] KERBL B, KOPANAS G, LEIMKUHLER T, et al. 3d gaussian splatting for real-time radiance field rendering.[J]. ACM Trans. Graph., 2023, 42(4): 139-1.
+
+[26] XUE H, JIN M, ZHANG C, et al. Image blending algorithm with automatic mask generation[C]//International Conference on Neural Information Processing. Springer, 2023: 234-248.
+
+[27] CEN J, FANG J, YANG C, et al. Segment any 3d gaussians[A]. 2023.
+
+[28] BARRON J T, MILDENHALL B, VERBIN D, et al. Mip-nerf 360: Unbounded anti-aliased neural radiance fields[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2022: 5470-5479.
+
+[29] ALIEV K A, SEVASTOPOLSKY A, KOLOS M, et al. Neural point-based graphics[C]//Computer Vision--ECCV 2020: 16th European Conference, Glasgow, UK, August 23--28, 2020, Proceedings, Part XXII 16. Springer, 2020: 696-712.
+
+[30] BARRON J T, MILDENHALL B, TANCIK M, et al. Mip-nerf: A multiscale representation for anti-aliasing neural radiance fields[C]//Proceedings of the IEEE/CVF international conference on computer vision. 2021: 5855-5864.
+
+[31] CHEN A, XU Z, GEIGER A, et al. Tensorf: Tensorial radiance fields[C]//European conference on computer vision. Springer, 2022: 333-350.
+
+[32] REISER C, PENG S, LIAO Y, et al. Kilonerf: Speeding up neural radiance fields with thousands of tiny mlps[C]//Proceedings of the IEEE/CVF international conference on computer vision. 2021: 14335-14345.
+
+[33] TAKIKAWA T, EVANS A, TREMBLAY J, et al. Variable bitrate neural fields[C]//ACM SIGGRAPH 2022 Conference Proceedings. 2022: 1-9.
+
+[34] BOTSCH M, HORNUNG A, ZWICKER M, et al. High-quality surface splatting on today's GPUs[C]//Proceedings Eurographics/IEEE VGTC Symposium Point-Based Graphics, 2005. IEEE, 2005: 17-141.
+
+[35] BHALGAT Y, LAINA I, HENRIQUES J F, et al. Contrastive lift: 3d object instance segmentation by slow-fast contrastive fusion[A]. 2023.
+
+[36] YIN X, GOUDRIAAN J, LANTINGA E A, et al. A flexible sigmoid function of determinate growth[J]. Annals of botany, 2003, 91(3): 361-371.
+
+[37] HAN J, MORAGA C. The influence of the sigmoid function parameters on the speed of backpropagation learning[C]//International workshop on artificial neural networks. Springer, 1995: 195-201.
+
+[38] KERR J, KIM C M, GOLDBERG K, et al. Lerf: Language embedded radiance fields[C]//Proceedings of the IEEE/CVF International Conference on Computer Vision. 2023: 19729-19739.
+
+[39] JIANG Y, SHEN Z, HONG Y, et al. Robust dual gaussian splatting for immersive human-centric volumetric videos[J]. ACM Transactions on Graphics (TOG), 2024, 43(6): 1-15.
+
+[40] HU S, HU T, LIU Z. Gauhuman: Articulated gaussian splatting from monocular human videos[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2024: 20418-20431.
+
+[41] JIANG Y, SHEN Z, WANG P, et al. Hifi4g: High-fidelity human performance rendering via compact gaussian splatting[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2024: 19734-19745.
+
+[42] KWON Y, LIU L, FUCHS H, et al. Deliffas: Deformable light fields for fast avatar synthesis[J]. Advances in neural information processing systems, 2023, 36: 40944-40962.
+
+[43] KESELMAN L, ISELIN WOODFILL J, GRUNNET-JEPSEN A, et al. Intel realsense stereoscopic depth cameras[C]//Proceedings of the IEEE conference on computer vision and pattern recognition workshops. 2017: 1-10.
+
+[44] ARKO S S H, HOSSAIN M T, DIPTO S M, et al. Real world objects augmentation in virtual 3D environment RealSense SDK, Deep Learning and Game Engine[C]//2021 IEEE Asia-Pacific Conference on Computer Science and Data Engineering (CSDE). IEEE, 2021: 1-6.
+
+[45] GOVINDARAJU V. Locating human faces in photographs[J]. International Journal of Computer Vision, 1996, 19(2): 129-146.
+
+[46] LIUSIE A, MANAKUL P, GALES M J. Llm comparative assessment: Zero-shot nlg evaluation through pairwise comparisons using large language models[A]. 2023.
+
+[47] WANG Z, LU F. Tasks Reflected in the Eyes: Egocentric Gaze-Aware Visual Task Type Recognition in Virtual Reality[J]. IEEE Transactions on Visualization and Computer Graphics, 2024.
+
+[48] BRODERICK A A. The autism industrial complex: How branding, marketing, and capital investment turned autism into big business[M]. Myers Education Press, 2022.
+
+[49] 汤兆云, 刘科成. 我国孤独症儿童群体的社会现状、现实困境与优化治理[J]. 深圳大学学报（人文社会科学版）, 2023, 40(06): 90-99.
+
+[50] SCHREIBMAN L, DAWSON G, STAHMER A C, et al. Naturalistic developmental behavioral interventions: Empirically validated treatments for autism spectrum disorder[J]. Journal of autism and developmental disorders, 2015, 45: 2411-2428.
+
+\end{spacing}
+\end{document}
