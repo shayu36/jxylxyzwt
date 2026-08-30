@@ -210,6 +210,12 @@ INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./FRBMain.toc
+INPUT ./FRBMain.toc
+INPUT FRBMain.toc
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
 OUTPUT FRBMain.toc
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
@@ -217,6 +223,15 @@ INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./include_picture/孤独症家庭每月用于干预的费用.png
+INPUT ./include_picture/孤独症家庭每月用于干预的费用.png
+INPUT ./include_picture/孤独症家庭每月用于干预的费用.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/我国孤独症干预机构分布.png
+INPUT ./include_picture/我国孤独症干预机构分布.png
+INPUT ./include_picture/我国孤独症干预机构分布.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
@@ -256,24 +271,69 @@ INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./include_picture/各向异性形状的高斯.png
+INPUT ./include_picture/各向异性形状的高斯.png
+INPUT ./include_picture/各向异性形状的高斯.png
+INPUT ./include_picture/场景 1-书房.png
+INPUT ./include_picture/场景 1-书房.png
+INPUT ./include_picture/场景 1-书房.png
+INPUT ./include_picture/场景 2-舞台.png
+INPUT ./include_picture/场景 2-舞台.png
+INPUT ./include_picture/场景 2-舞台.png
+INPUT ./include_picture/场景 3-室外滑梯.png
+INPUT ./include_picture/场景 3-室外滑梯.png
+INPUT ./include_picture/场景 3-室外滑梯.png
+INPUT ./include_picture/场景 4-游戏室.png
+INPUT ./include_picture/场景 4-游戏室.png
+INPUT ./include_picture/场景 4-游戏室.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./include_picture/初始未分割点云物体.png
+INPUT ./include_picture/初始未分割点云物体.png
+INPUT ./include_picture/初始未分割点云物体.png
+INPUT ./include_picture/掩码覆盖的分割物体点云.png
+INPUT ./include_picture/掩码覆盖的分割物体点云.png
+INPUT ./include_picture/掩码覆盖的分割物体点云.png
+INPUT ./include_picture/单帧 3D 动态人物重建结果.png
+INPUT ./include_picture/单帧 3D 动态人物重建结果.png
+INPUT ./include_picture/单帧 3D 动态人物重建结果.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./include_picture/智能语音交互系统流程.png
+INPUT ./include_picture/智能语音交互系统流程.png
+INPUT ./include_picture/智能语音交互系统流程.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/眼动分析凝视估计.png
+INPUT ./include_picture/眼动分析凝视估计.png
+INPUT ./include_picture/眼动分析凝视估计.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/background.png
+INPUT ./include_picture/系统整体展示.png
+INPUT ./include_picture/系统整体展示.png
+INPUT ./include_picture/系统整体展示.png
+INPUT ./include_picture/患儿视角展示.png
+INPUT ./include_picture/患儿视角展示.png
+INPUT ./include_picture/患儿视角展示.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
+INPUT ./include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png
+INPUT ./include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png
+INPUT ./include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png
 INPUT ./include_picture/background.png

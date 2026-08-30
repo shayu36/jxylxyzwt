@@ -267,7 +267,7 @@ Autism currently has unclear symptoms and no specific drugs. Given the professio
 
 To address the above issues, virtual reality technology, with its advantages such as immersion, controllability and reusability, has gradually been applied in autism intervention. However, due to technical limitations, it faces three major constraints: first, the distorted and fixed scenarios exacerbate the core obstacle of children with autism -- the deficiency in generalization ability; second, the pre-set virtual character expressions and other social elements are missing, deviating from the essence of social intervention; third, the absence of a patient-specific dynamic assessment system. These limitations create a structural contradiction with the high heterogeneity of patient symptoms, hindering the effective transformation of technological achievements into clinical practice.
 
-For this purpose, we have proposed the Beichen -- an integrated intervention system for children with autism, aiming to provide personalized high-fidelity 3D Gaussian splash scenes and highly realistic character simulation social or intervention scenarios. It also establishes a multi-modal AI large model-driven intelligent voice interaction system to conduct integrated intervention training for children's cognitive functions, social interactions, language and expression abilities, and instrumental activities of daily living. Additionally, the Beichen system converts complex neurodevelopmental assessments into wearable device-driven behavioral data analysis through real-time data collection and analysis, providing objective dynamic monitoring anchor points for family-based intervention and scientific evidence for intervention effects, to care for the healthy growth of ``star children''.
+For this purpose, we have proposed the Beichen -- an integrated intervention system for children with autism, aiming to provide personalized high-fidelity 3D Gaussian splash scenes and highly realistic character simulation social or intervention scenarios. It also establishes a multi-modal AI large model-driven intelligent voice interaction system to conduct integrated intervention training for children’s cognitive functions, social interactions, language and expression abilities, and instrumental activities of daily living. Additionally, the Beichen system converts complex neurodevelopmental assessments into wearable device-driven behavioral data analysis through real-time data collection and analysis, providing objective dynamic monitoring anchor points for family-based intervention and scientific evidence for intervention effects, to care for the healthy growth of ``star children''.
 
 \textbf{Keywords:} Autism, Intervention, Virtual Reality, Gaussan Splatting, Large Language Models
 \end{adjustwidth}
@@ -333,7 +333,7 @@ For this purpose, we have proposed the Beichen -- an integrated intervention sys
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\linewidth]{include_picture/北辰_图1_孤独症家庭每月干预费用.png}
+    \includegraphics[width=0.85\linewidth]{include_picture/孤独症家庭每月用于干预的费用.png}
     \caption{孤独症家庭每月用于干预的费用}
     \label{fig:beichen-cost}
 \end{figure}
@@ -342,7 +342,7 @@ For this purpose, we have proposed the Beichen -- an integrated intervention sys
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图2_我国孤独症干预机构分布.png}
+    \includegraphics[width=0.72\linewidth]{include_picture/我国孤独症干预机构分布.png}
     \caption{我国孤独症干预机构分布}
     \label{fig:beichen-institutions}
 \end{figure}
@@ -419,7 +419,7 @@ Xue 等人利用 SAM 和 DINO 等视觉模型生成语义掩码，通过几何�
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.78\linewidth]{include_picture/北辰_图3_各向异性形状的高斯.png}
+    \includegraphics[width=0.78\linewidth]{include_picture/各向异性形状的高斯.png}
     \caption{各向异性形状的高斯}
     \label{fig:beichen-anisotropic-gaussian}
 \end{figure}
@@ -440,13 +440,13 @@ L=(1-\lambda)L_1+\lambda L_{D-SSIM}
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图4a_书房.png}
+        \includegraphics[width=\linewidth]{include_picture/场景 1-书房.png}
         \caption{场景1-书房}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图4b_舞台.png}
+        \includegraphics[width=\linewidth]{include_picture/场景 2-舞台.png}
         \caption{场景2-舞台}
     \end{subfigure}
 
@@ -454,13 +454,13 @@ L=(1-\lambda)L_1+\lambda L_{D-SSIM}
 
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图4c_室外滑梯.png}
+        \includegraphics[width=\linewidth]{include_picture/场景 3-室外滑梯.png}
         \caption{场景3-室外滑梯}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图4d_游戏室.png}
+        \includegraphics[width=\linewidth]{include_picture/场景 4-游戏室.png}
         \caption{场景4-游戏室}
     \end{subfigure}
     \caption{3D 高斯泼溅场景展示}
@@ -491,13 +491,13 @@ F(p)=\sum_{i=1}^{|g_p|}f^g_{ip}\alpha^g_{ip}\prod_{j=1}^{i-1}\left(1-\alpha^g_{j
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图5a_初始未分割点云物体.png}
+        \includegraphics[width=\linewidth]{include_picture/初始未分割点云物体.png}
         \caption{初始未分割点云物体}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{include_picture/北辰_图5b_掩码覆盖的分割物体点云.png}
+        \includegraphics[width=\linewidth]{include_picture/掩码覆盖的分割物体点云.png}
         \caption{掩码覆盖的分割物体点云}
     \end{subfigure}
     \caption{物品分割前后对比}
@@ -516,7 +516,7 @@ F(p)=\sum_{i=1}^{|g_p|}f^g_{ip}\alpha^g_{ip}\prod_{j=1}^{i-1}\left(1-\alpha^g_{j
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.42\linewidth]{include_picture/北辰_图6_单帧3D动态人物重建结果.png}
+    \includegraphics[width=0.42\linewidth]{include_picture/单帧 3D 动态人物重建结果.png}
     \caption{单帧 3D 动态人物重建结果}
     \label{fig:beichen-human-reconstruction}
 \end{figure}
@@ -553,7 +553,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.82\linewidth]{include_picture/北辰_图7_智能语音交互系统流程.png}
+    \includegraphics[width=0.82\linewidth]{include_picture/智能语音交互系统流程.png}
     \caption{智能语音交互系统流程}
     \label{fig:beichen-voice-flow}
 \end{figure}
@@ -572,7 +572,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图8_眼动分析凝视估计.png}
+    \includegraphics[width=0.72\linewidth]{include_picture/眼动分析凝视估计.png}
     \caption{眼动分析凝视估计}
     \label{fig:beichen-gaze}
 \end{figure}
@@ -585,18 +585,18 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.58\linewidth]{include_picture/北辰_图9_系统整体展示.jpg}
+    \includegraphics[width=0.58\linewidth]{include_picture/系统整体展示.png}
     \caption{系统整体展示}
     \label{fig:beichen-system}
 \end{figure}
 
-北辰充分考虑干预场景人物的真实性、社交属性、干预效果检测和个性化设置，通过在 VR 中进行一系列引导操作，对患儿认知功能、社会交往、语言和与表达能力和工具性日常生活能力进行一体化干预训练。
+北辰充分考虑干预场景人物的真实性、社交属性、干预效果检测和个性化设置，如图 8 展示，通过在 VR 中进行一系列引导操作，对患儿认知功能、社会交往、语言和与表达能力和工具性日常生活能力进行一体化干预训练。
 
 在认知功能方面，VR 环境提供的沉浸式体验能够有效刺激患儿的注意力和感知能力，促进其认知发展。通过高保真的 3D 高斯泼溅场景模拟真实场景和情境，患儿可以在安全的环境中进行探索和学习，从而提高其解决问题和适应新环境的能力。
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.72\linewidth]{include_picture/北辰_图10_患儿视角展示.jpg}
+    \includegraphics[width=0.72\linewidth]{include_picture/患儿视角展示.png}
     \caption{患儿视角展示}
     \label{fig:beichen-child-view}
 \end{figure}
@@ -640,7 +640,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.80\linewidth]{include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png}
+    \includegraphics[width=0.80\linewidth]{include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png}
     \caption{2024--2031 年全球孤独症谱系障碍市场规模}
     \label{fig:beichen-market}
 \end{figure}
@@ -714,7 +714,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 [18] KE F, MOON J, SOKOLIKJ Z. Designing and deploying a virtual social sandbox for autistic children[J]. Disability and Rehabilitation: Assistive Technology, 2024, 19(4): 1178-1209.
 
-[19] SOLTIYEVA A, OLIVEIRA W, MADINA A, et al. My Lovely Granny's Farm: An immersive virtual reality training system for children with autism spectrum disorder[J]. Education and Information Technologies, 2023, 28(12): 16887-16907.
+[19] SOLTIYEVA A, OLIVEIRA W, MADINA A, et al. My Lovely Granny’s Farm: An immersive virtual reality training system for children with autism spectrum disorder[J]. Education and Information Technologies, 2023, 28(12): 16887-16907.
 
 [20] TAN Q P, HUANG L, XU D, et al. Serious game for VR road crossing in special needs education[J]. Electronics, 2022, 11(16): 2568.
 
@@ -744,7 +744,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 [33] TAKIKAWA T, EVANS A, TREMBLAY J, et al. Variable bitrate neural fields[C]//ACM SIGGRAPH 2022 Conference Proceedings. 2022: 1-9.
 
-[34] BOTSCH M, HORNUNG A, ZWICKER M, et al. High-quality surface splatting on today's GPUs[C]//Proceedings Eurographics/IEEE VGTC Symposium Point-Based Graphics, 2005. IEEE, 2005: 17-141.
+[34] BOTSCH M, HORNUNG A, ZWICKER M, et al. High-quality surface splatting on today’s GPUs[C]//Proceedings Eurographics/IEEE VGTC Symposium Point-Based Graphics, 2005. IEEE, 2005: 17-141.
 
 [35] BHALGAT Y, LAINA I, HENRIQUES J F, et al. Contrastive lift: 3d object instance segmentation by slow-fast contrastive fusion[A]. 2023.
 
@@ -774,7 +774,7 @@ P(x,y,z)=K^{-1}\cdot [u,v,1]^T\cdot D(u,v)
 
 [48] BRODERICK A A. The autism industrial complex: How branding, marketing, and capital investment turned autism into big business[M]. Myers Education Press, 2022.
 
-[49] 汤兆云, 刘科成. 我国孤独症儿童群体的社会现状、现实困境与优化治理[J]. 深圳大学学报（人文社会科学版）, 2023, 40(06): 90-99.
+[49] 汤兆云, 刘科成. 我国孤独症儿童群体的社会现状、现实困境与优化治理[J]. 深圳大学学报 (人文社会科学版), 2023, 40(06): 90-99.
 
 [50] SCHREIBMAN L, DAWSON G, STAHMER A C, et al. Naturalistic developmental behavioral interventions: Empirically validated treatments for autism spectrum disorder[J]. Journal of autism and developmental disorders, 2015, 45: 2411-2428.
 

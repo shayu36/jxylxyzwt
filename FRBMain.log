@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.18)  30 AUG 2026 01:16
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2026.1.18)  30 AUG 2026 11:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -848,8 +848,13 @@ File: include_picture/background.png Graphic file (type bmp)
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[3]
-No file FRBMain.toc.
+[3] (./FRBMain.toc
+
+File: include_picture/background.png Graphic file (type bmp)
+<include_picture/background.png>
+[4
+
+])
 \tf@toc=\write4
 \openout4 = `FRBMain.toc'.
 
@@ -857,84 +862,35 @@ No file FRBMain.toc.
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[4
-
-]
+[5]
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [1
 
 ]
-
-LaTeX Warning: File `include_picture/北辰_图1_孤独症家庭每月干预费用.png' not found on input line 336.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:336: Unable to load picture or PDF file 'include_picture/北辰_图1_孤独症家庭每月干预费用.png'.
-<to be read again> 
-                   }
-l.336 ...h]{include_picture/北辰_图1_孤独症家庭每月干预费用.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:336: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.336 ...h]{include_picture/北辰_图1_孤独症家庭每月干预费用.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图1_孤独症家庭每月干预费用.png Graphic file (type bmp)
-<include_picture/北辰_图1_孤独症家庭每月干预费用.png>
+File: include_picture/孤独症家庭每月用于干预的费用.png Graphic file (type bmp)
+<include_picture/孤独症家庭每月用于干预的费用.png>
 
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [2]
-
-LaTeX Warning: File `include_picture/北辰_图2_我国孤独症干预机构分布.png' not found on input line 345.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:345: Unable to load picture or PDF file 'include_picture/北辰_图2_我国孤独症干预机构分布.png'.
-<to be read again> 
-                   }
-l.345 ...h]{include_picture/北辰_图2_我国孤独症干预机构分布.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
+File: include_picture/我国孤独症干预机构分布.png Graphic file (type bmp)
+<include_picture/我国孤独症干预机构分布.png>
 
 
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:345: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.345 ...h]{include_picture/北辰_图2_我国孤独症干预机构分布.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图2_我国孤独症干预机构分布.png Graphic file (type bmp)
-<include_picture/北辰_图2_我国孤独症干预机构分布.png>
+File: include_picture/background.png Graphic file (type bmp)
+<include_picture/background.png>
+[3]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 356.
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 356.
  (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-File: include_picture/background.png Graphic file (type bmp)
-<include_picture/background.png>
-[3]
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
@@ -948,377 +904,62 @@ File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [6]
 
-LaTeX Warning: File `include_picture/北辰_图3_各向异性形状的高斯.png' not found on input line 422.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:422: Unable to load picture or PDF file 'include_picture/北辰_图3_各向异性形状的高斯.png'.
-<to be read again> 
-                   }
-l.422 ...dth]{include_picture/北辰_图3_各向异性形状的高斯.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:422: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.422 ...dth]{include_picture/北辰_图3_各向异性形状的高斯.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图3_各向异性形状的高斯.png Graphic file (type bmp)
-<include_picture/北辰_图3_各向异性形状的高斯.png>
-
-LaTeX Warning: File `include_picture/北辰_图4a_书房.png' not found on input line 443.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:443: Unable to load picture or PDF file 'include_picture/北辰_图4a_书房.png'.
-<to be read again> 
-                   }
-l.443 ...linewidth]{include_picture/北辰_图4a_书房.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:443: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.443 ...linewidth]{include_picture/北辰_图4a_书房.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图4a_书房.png Graphic file (type bmp)
-<include_picture/北辰_图4a_书房.png>
-
-LaTeX Warning: File `include_picture/北辰_图4b_舞台.png' not found on input line 449.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:449: Unable to load picture or PDF file 'include_picture/北辰_图4b_舞台.png'.
-<to be read again> 
-                   }
-l.449 ...linewidth]{include_picture/北辰_图4b_舞台.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:449: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.449 ...linewidth]{include_picture/北辰_图4b_舞台.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图4b_舞台.png Graphic file (type bmp)
-<include_picture/北辰_图4b_舞台.png>
-
-LaTeX Warning: File `include_picture/北辰_图4c_室外滑梯.png' not found on input line 457.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:457: Unable to load picture or PDF file 'include_picture/北辰_图4c_室外滑梯.png'.
-<to be read again> 
-                   }
-l.457 ...newidth]{include_picture/北辰_图4c_室外滑梯.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:457: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.457 ...newidth]{include_picture/北辰_图4c_室外滑梯.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图4c_室外滑梯.png Graphic file (type bmp)
-<include_picture/北辰_图4c_室外滑梯.png>
-
-LaTeX Warning: File `include_picture/北辰_图4d_游戏室.png' not found on input line 463.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:463: Unable to load picture or PDF file 'include_picture/北辰_图4d_游戏室.png'.
-<to be read again> 
-                   }
-l.463 ...inewidth]{include_picture/北辰_图4d_游戏室.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:463: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.463 ...inewidth]{include_picture/北辰_图4d_游戏室.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图4d_游戏室.png Graphic file (type bmp)
-<include_picture/北辰_图4d_游戏室.png>
-
-
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [7]
-
-LaTeX Warning: File `include_picture/北辰_图5a_初始未分割点云物体.png' not found on input line 494.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:494: Unable to load picture or PDF file 'include_picture/北辰_图5a_初始未分割点云物体.png'.
-<to be read again> 
-                   }
-l.494 ...th]{include_picture/北辰_图5a_初始未分割点云物体.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:494: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.494 ...th]{include_picture/北辰_图5a_初始未分割点云物体.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图5a_初始未分割点云物体.png Graphic file (type bmp)
-<include_picture/北辰_图5a_初始未分割点云物体.png>
-
-LaTeX Warning: File `include_picture/北辰_图5b_掩码覆盖的分割物体点云.png' not found on input line 500.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:500: Unable to load picture or PDF file 'include_picture/北辰_图5b_掩码覆盖的分割物体点云.png'.
-<to be read again> 
-                   }
-l.500 ...]{include_picture/北辰_图5b_掩码覆盖的分割物体点云.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:500: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.500 ...]{include_picture/北辰_图5b_掩码覆盖的分割物体点云.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图5b_掩码覆盖的分割物体点云.png Graphic file (type bmp)
-<include_picture/北辰_图5b_掩码覆盖的分割物体点云.png>
+File: include_picture/各向异性形状的高斯.png Graphic file (type bmp)
+<include_picture/各向异性形状的高斯.png>
+File: include_picture/场景 1-书房.png Graphic file (type bmp)
+<include_picture/场景 1-书房.png>
+File: include_picture/场景 2-舞台.png Graphic file (type bmp)
+<include_picture/场景 2-舞台.png>
+File: include_picture/场景 3-室外滑梯.png Graphic file (type bmp)
+<include_picture/场景 3-室外滑梯.png>
+File: include_picture/场景 4-游戏室.png Graphic file (type bmp)
+<include_picture/场景 4-游戏室.png>
 
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [8]
 
-LaTeX Warning: File `include_picture/北辰_图6_单帧3D动态人物重建结果.png' not found on input line 519.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:519: Unable to load picture or PDF file 'include_picture/北辰_图6_单帧3D动态人物重建结果.png'.
-<to be read again> 
-                   }
-l.519 ...]{include_picture/北辰_图6_单帧3D动态人物重建结果.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:519: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.519 ...]{include_picture/北辰_图6_单帧3D动态人物重建结果.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图6_单帧3D动态人物重建结果.png Graphic file (type bmp)
-<include_picture/北辰_图6_单帧3D动态人物重建结果.png>
-
-
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [9]
-
-LaTeX Warning: File `include_picture/北辰_图7_智能语音交互系统流程.png' not found on input line 556.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:556: Unable to load picture or PDF file 'include_picture/北辰_图7_智能语音交互系统流程.png'.
-<to be read again> 
-                   }
-l.556 ...th]{include_picture/北辰_图7_智能语音交互系统流程.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:556: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.556 ...th]{include_picture/北辰_图7_智能语音交互系统流程.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图7_智能语音交互系统流程.png Graphic file (type bmp)
-<include_picture/北辰_图7_智能语音交互系统流程.png>
+File: include_picture/初始未分割点云物体.png Graphic file (type bmp)
+<include_picture/初始未分割点云物体.png>
+File: include_picture/掩码覆盖的分割物体点云.png Graphic file (type bmp)
+<include_picture/掩码覆盖的分割物体点云.png>
+File: include_picture/单帧 3D 动态人物重建结果.png Graphic file (type bmp)
+<include_picture/单帧 3D 动态人物重建结果.png>
 
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [10]
 
-LaTeX Warning: File `include_picture/北辰_图8_眼动分析凝视估计.png' not found on input line 575.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:575: Unable to load picture or PDF file 'include_picture/北辰_图8_眼动分析凝视估计.png'.
-<to be read again> 
-                   }
-l.575 ...idth]{include_picture/北辰_图8_眼动分析凝视估计.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:575: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.575 ...idth]{include_picture/北辰_图8_眼动分析凝视估计.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图8_眼动分析凝视估计.png Graphic file (type bmp)
-<include_picture/北辰_图8_眼动分析凝视估计.png>
-
-LaTeX Warning: File `include_picture/北辰_图9_系统整体展示.jpg' not found on input line 588.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:588: Unable to load picture or PDF file 'include_picture/北辰_图9_系统整体展示.jpg'.
-<to be read again> 
-                   }
-l.588 ...ewidth]{include_picture/北辰_图9_系统整体展示.jpg}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:588: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.588 ...ewidth]{include_picture/北辰_图9_系统整体展示.jpg}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图9_系统整体展示.jpg Graphic file (type bmp)
-<include_picture/北辰_图9_系统整体展示.jpg>
-
-LaTeX Warning: File `include_picture/北辰_图10_患儿视角展示.jpg' not found on input line 599.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:599: Unable to load picture or PDF file 'include_picture/北辰_图10_患儿视角展示.jpg'.
-<to be read again> 
-                   }
-l.599 ...width]{include_picture/北辰_图10_患儿视角展示.jpg}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:599: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.599 ...width]{include_picture/北辰_图10_患儿视角展示.jpg}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图10_患儿视角展示.jpg Graphic file (type bmp)
-<include_picture/北辰_图10_患儿视角展示.jpg>
-
-
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [11]
+File: include_picture/智能语音交互系统流程.png Graphic file (type bmp)
+<include_picture/智能语音交互系统流程.png>
+
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [12]
-
-LaTeX Warning: File `include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png' not found on input line 643.
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:643: Unable to load picture or PDF file 'include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png'.
-<to be read again> 
-                   }
-l.643 ...include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex:643: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.643 ...include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png Graphic file (type bmp)
-<include_picture/北辰_图11_全球孤独症谱系障碍市场规模.png>
+File: include_picture/眼动分析凝视估计.png Graphic file (type bmp)
+<include_picture/眼动分析凝视估计.png>
 
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [13]
+File: include_picture/系统整体展示.png Graphic file (type bmp)
+<include_picture/系统整体展示.png>
+File: include_picture/患儿视角展示.png Graphic file (type bmp)
+<include_picture/患儿视角展示.png>
+
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
@@ -1327,6 +968,21 @@ File: include_picture/background.png Graphic file (type bmp)
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
 [15]
+File: include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png Graphic file (type bmp)
+<include_picture/2024-2031 年全球孤独症谱系障碍市场规模.png>
+
+
+File: include_picture/background.png Graphic file (type bmp)
+<include_picture/background.png>
+[16]
+
+File: include_picture/background.png Graphic file (type bmp)
+<include_picture/background.png>
+[17]
+
+File: include_picture/background.png Graphic file (type bmp)
+<include_picture/background.png>
+[18]
 Overfull \hbox (72.7474pt too wide) in paragraph at lines 683--684
 \TU/SimSun(0)/m/n/12.045 远 景 目 标 纲 要 \TU/times-new-roman.ttf(0)/m/n/12.045 [A/OL]. \TU/SimSun(0)/m/n/12.045 中 国 政 府 网\TU/times-new-roman.ttf(0)/m/n/12.045 , 2021. https://www.gov.cn/xinwen/2021-03/13/content_5592681.htm. 
  []
@@ -1340,7 +996,7 @@ Overfull \hbox (62.16293pt too wide) in paragraph at lines 685--686
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[16]
+[19]
 Overfull \hbox (7.09908pt too wide) in paragraph at lines 731--732
 \TU/times-new-roman.ttf(0)/m/n/12.045 mask generation[C]//International Conference on Neural Information Processing. Springer,
  []
@@ -1349,7 +1005,7 @@ Overfull \hbox (7.09908pt too wide) in paragraph at lines 731--732
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[17]
+[20]
 Overfull \hbox (13.51071pt too wide) in paragraph at lines 741--742
 []\TU/times-new-roman.ttf(0)/m/n/12.045 [31] CHEN A, XU Z, GEIGER A, et al. Tensorf: Tensorial radiance fields[C]//European
  []
@@ -1360,15 +1016,10 @@ Overfull \hbox (43.26448pt too wide) in paragraph at lines 745--746
  []
 
 
-Overfull \hbox (4.02443pt too wide) in paragraph at lines 747--748
-\TU/times-new-roman.ttf(0)/m/n/12.045 ting on today’s GPUs[C]//Proceedings Eurographics/IEEE VGTC Symposium Point-Based
- []
-
-
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[18]
+[21]
 Overfull \hbox (5.04683pt too wide) in paragraph at lines 769--770
 []\TU/times-new-roman.ttf(0)/m/n/12.045 [45] GOVINDARAJU V. Locating human faces in photographs[J]. International Jour-
  []
@@ -1377,23 +1028,19 @@ Overfull \hbox (5.04683pt too wide) in paragraph at lines 769--770
 
 File: include_picture/background.png Graphic file (type bmp)
 <include_picture/background.png>
-[19] (./FRBMain.aux)
+[22] (./FRBMain.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 17137 strings out of 475796
- 405206 string characters out of 5774033
- 787372 words of memory out of 5000000
- 39780 multiletter control sequences out of 15000+600000
+ 16515 strings out of 475796
+ 377113 string characters out of 5774033
+ 786757 words of memory out of 5000000
+ 39157 multiletter control sequences out of 15000+600000
  566288 words of font info for 105 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  93i,12n,115p,1221b,813s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on FRBMain.xdv (24 pages, 374360 bytes).
+Output written on FRBMain.xdv (28 pages, 445620 bytes).

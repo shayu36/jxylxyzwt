@@ -1,13 +1,13 @@
 # Fdb version 4
 ["xdvipdfmx"] 0 "FRBMain.xdv" "FRBMain.pdf" "FRBMain" 0 -1
-  "FRBMain.xdv" 1788023796 374360 5c03e73422d66083d49c3181cb79197d "xelatex"
+  "FRBMain.xdv" 1788061651 374544 ee1e76ad6c94a4cb25b110f7eb60ee07 "xelatex"
   (generated)
   "FRBMain.pdf"
   (rewritten before read)
-["xelatex"] 1788023793.7007 "d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex" "FRBMain.xdv" "FRBMain" 1788023796.88279 2
-  "FRBMain.aux" 1788023796 7062 b5e593e51aea1e87fe7f77a3525b228b "xelatex"
-  "FRBMain.tex" 1788023433 64468 29744577a5ffc4afd35c6948f6bae0c6 ""
-  "FRBMain.toc" 1788023796 2960 c1fb473d9b4e7a5587632b2d93c13d34 "xelatex"
+["xelatex"] 1788061649.21038 "d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex" "FRBMain.xdv" "FRBMain" 1788061652.024 2
+  "FRBMain.aux" 1788061651 7062 b5e593e51aea1e87fe7f77a3525b228b "xelatex"
+  "FRBMain.tex" 1788060026 64490 f395737177c7f12367685d1da685160a ""
+  "FRBMain.toc" 1788061651 2960 c1fb473d9b4e7a5587632b2d93c13d34 "xelatex"
   "c:/Windows/Fonts/msyh.ttc" 1734413498 19704352 1e10e74402e59d54499af795caf0b135 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1768711621 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2025/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1768714832 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -120,7 +120,7 @@
   "c:/texlive/2025/texmf-dist/web2c/texmf.cnf" 1768710627 42148 61becc7c670cd061bb319c643c27fdd4 ""
   "c:/texlive/2025/texmf-var/web2c/xetex/xelatex.fmt" 1768715285 4149401 85d6321c9367f7b4585abbb4c970279d ""
   "c:/texlive/2025/texmf.cnf" 1768715198 713 e69b156964470283e0530f5060668171 ""
-  "d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex" 1788023433 64468 29744577a5ffc4afd35c6948f6bae0c6 ""
+  "d:/Users/lenovo/Desktop/挑战杯num1/FRBMain.tex" 1788060026 64490 f395737177c7f12367685d1da685160a ""
   "gbt7714.sty" 1775543288 10620 481e62578c71ba9ff1b6d9434411f7d7 ""
   "include_picture/background.png" 1777741208 1244202 e88c4c1cc9ceebd7f4672e3692f5381d ""
   "include_picture/first_page.png" 1777970804 7074612 00888014f7fbddfd5c2f9861c62861e7 ""
